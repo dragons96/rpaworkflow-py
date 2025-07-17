@@ -22,8 +22,9 @@ class LambdaActionNode(ActionNode):
 class LambdaDataStorageNode(DataStorageNode):
 
     def execute(self, context: CONTEXT) -> None:
-        self.store_data(context, self.lambda_func(context))
-        self.logger.info(f"LambdaDataStorageNode: {self.output_key} = {self.lambda_func(context)}")
+        result = self.lambda_func(context)
+        self.store_data(context, result)
+        self.logger.info(f"LambdaDataStorageNode: {self.output_key} = {result}")
 
     def __init__(self,
                  name: str = "Lambda Data Storage Node",

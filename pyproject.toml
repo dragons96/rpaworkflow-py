@@ -53,3 +53,12 @@ all = [
     "undetected-chromedriver>=3.0.0",
     "DrissionPage>=4.0.0",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+]
+
+[[tool.uv.index]]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
