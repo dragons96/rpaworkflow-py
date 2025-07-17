@@ -241,6 +241,7 @@ class WorkflowNode(ABC, Generic[CONTEXT]):
             # 预处理
             if not self.pre_execute(context):
                 self.status = NodeStatus.SKIPPED
+                self.end_time = time.time()
                 self.logger.info(f"节点 \"{self.name}\" 被跳过")
                 return self.status
 
