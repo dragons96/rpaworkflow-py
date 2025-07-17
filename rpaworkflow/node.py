@@ -383,7 +383,7 @@ class WorkflowNode(ABC, Generic[CONTEXT]):
         return self.__str__()
 
 
-class MergeWorkflowNode(WorkflowNode):
+class MergeWorkflowNode(WorkflowNode[CONTEXT]):
     """合并工作流节点
 
     用于将多个工作流节点合并为一个节点，并返回合并后的结果
@@ -436,7 +436,7 @@ class MergeWorkflowNode(WorkflowNode):
 
 
 
-class DataStorageNode(WorkflowNode):
+class DataStorageNode(WorkflowNode[CONTEXT]):
     """数据存储节点基类
 
     专门用于需要存储数据的节点

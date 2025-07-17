@@ -11,6 +11,7 @@ import random
 from typing import Optional
 from ..node import ActionNode
 from ..context import CONTEXT
+from ..exception import NodeError
 
 
 class WaitTimeNode(ActionNode):
@@ -44,13 +45,13 @@ class WaitTimeNode(ActionNode):
             max_time = self.max_time
 
             if min_time is None or max_time is None:
-                raise ValueError("随机等待模式需要提供 min_time 和 max_time 参数")
+                raise NodeError("随机等待模式需要提供 min_time 和 max_time 参数")
 
             if min_time < 0 or max_time < 0:
-                raise ValueError("等待时间不能为负数")
+                raise NodeError("等待时间不能为负数")
 
             if min_time > max_time:
-                raise ValueError("最小等待时间不能大于最大等待时间")
+                raise NodeError("最大等待时间必须大于或等于最小等待时间")
 
             actual_wait_time = random.uniform(min_time, max_time)
         else:
@@ -58,10 +59,10 @@ class WaitTimeNode(ActionNode):
             wait_time = self.min_time
 
             if wait_time is None:
-                raise ValueError("固定等待模式需要提供 wait_time 参数")
+                raise NodeError("固定等待模式需要提供 min_time 参数")
 
             if wait_time < 0:
-                raise ValueError("等待时间不能为负数")
+                raise NodeError("等待时间不能为负数")
 
             actual_wait_time = wait_time
 

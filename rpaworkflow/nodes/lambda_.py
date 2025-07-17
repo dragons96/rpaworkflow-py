@@ -2,11 +2,14 @@ from typing import Callable, Any
 
 from rpaworkflow.node import ActionNode, DataStorageNode
 from rpaworkflow.context import CONTEXT
+from rpaworkflow.exception import NodeError
 
 
 class LambdaActionNode(ActionNode):
 
     def execute(self, context: CONTEXT) -> None:
+        if self.lambda_func is None:
+            raise NodeError("Lambda函数不能为空")
         self.lambda_func(context)
         self.logger.info(f"LambdaActionNode: {self.name}")
 
@@ -22,6 +25,8 @@ class LambdaActionNode(ActionNode):
 class LambdaDataStorageNode(DataStorageNode):
 
     def execute(self, context: CONTEXT) -> None:
+        if self.lambda_func is None:
+            raise NodeError("Lambda函数不能为空")
         result = self.lambda_func(context)
         self.store_data(context, result)
         self.logger.info(f"LambdaDataStorageNode: {self.output_key} = {result}")
