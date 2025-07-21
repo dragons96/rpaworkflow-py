@@ -38,9 +38,7 @@ class ConnectDeviceNode(U2BaseNode, DataStorageNode):
         else:
             device = u2.connect()
 
-        # 获取设备信息
-        device_info = device.device_info
-        self.logger.info(f"设备连接成功: {device_info.get('model', 'Unknown')}")
+        self.logger.info(f"设备连接成功: {device.serial}")
 
         # 存储设备信息到指定键
         self.store_data(context, device)
