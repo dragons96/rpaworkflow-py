@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "rpaworkflow"
-version = "1.0.0"
+version = "0.0.1"
 description = "RPA工作流框架，支持多种自动化工具的工作流管理和节点执行"
 readme = "README.md"
 requires-python = ">=3.11"
