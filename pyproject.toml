@@ -12,7 +12,7 @@ name = "rpaworkflow"
 # version = "0.0.2"
 description = "RPA工作流框架，支持多种自动化工具的工作流管理和节点执行"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
     {name = "RPA Workflow Team", email = "example@example.com"}
