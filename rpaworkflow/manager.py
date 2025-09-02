@@ -33,6 +33,7 @@ class WorkflowResult:
     node_executions: Dict[str, Dict[str, Any]] = field(default_factory=dict)
     context: Optional[CONTEXT] = None
     error_message: Optional[str] = None
+    error_node: Optional[WorkflowNode] = None
 
 
 class WorkflowManager:
@@ -322,6 +323,7 @@ class WorkflowManager:
             node_executions=node_results,
             context=self.context,
             error_message=f'节点[{last_node.exception_info.node_name}]异常, 异常信息: {last_node.exception_info.error_message}\n{last_node.exception_info.traceback_info}' if last_node and last_node.exception_info else None,
+            error_node=last_node if last_node and last_node.exception_info else None,
         )
 
         logger.info(f"工作流 {self.name} 执行完成，状态: {self.status.value}")
