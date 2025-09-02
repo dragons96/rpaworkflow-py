@@ -6,14 +6,14 @@
 
 from selenium import webdriver
 from selenium.webdriver.remote.webelement import WebElement
-from typing import Optional, Dict, Any, TypeVar, List
+from typing import Optional, Dict, Any, TypeVar, List, Union
 
 from rpaworkflow.context import WorkflowContext
 
 
 class WorkflowSeleniumContext(WorkflowContext, total=False):
     # === 浏览器相关 ===
-    driver: Optional[webdriver.Chrome | webdriver.Firefox | webdriver.Edge | webdriver.Safari]  # 浏览器驱动
+    driver: Optional[Union[webdriver.Chrome, webdriver.Firefox, webdriver.Edge, webdriver.Safari]]  # 浏览器驱动
     browser_type: Optional[str]  # 浏览器类型
     window_size: Optional[tuple]  # 窗口尺寸
     current_url: Optional[str]  # 当前URL
