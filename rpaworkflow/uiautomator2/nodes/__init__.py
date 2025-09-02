@@ -36,5 +36,6 @@ __all__ = [
     'ScrollNode',
 ]
 
-__version__ = '1.0.0'
+# 版本信息
+__version__ = '0.0.0' # 使用动态版本
 __author__ = 'dragons96'

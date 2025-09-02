@@ -48,5 +48,5 @@ __all__ = [
     'and_'
 ]
 
-__version__ = '1.0.0'
+__version__ = '0.0.0' # 使用动态版本
 __author__ = 'dragons96'

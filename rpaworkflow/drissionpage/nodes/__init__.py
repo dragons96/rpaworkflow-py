@@ -176,3 +176,8 @@ __all__ = [
     'CloseTabNode',
     'QuitBrowserNode'
 ]
+
+# 版本信息
+__version__ = '0.0.0' # 使用动态版本
+__author__ = 'dragons96'
+__description__ = 'DrissionPage nodes for RPA Workflow framework'
